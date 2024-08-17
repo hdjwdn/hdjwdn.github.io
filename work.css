@@ -1,0 +1,116 @@
+/* 主要内容区域样式 */
+main {
+    width: 90%; /* 增加宽度以适应更小的屏幕 */
+    max-width: 1200px; /* 限制最大宽度 */
+    margin: 0 auto;
+    text-align: center; /* 居中主要内容 */
+    padding-top: 3%; /* 主要内容区域内边距 */
+}
+
+/* 作品标题样式 */
+.work-title {
+    text-align: center; /* 居中对齐 */
+    padding: 2rem; /* 内边距 */
+    background-color: #bc9ec1; /* 背景颜色 */
+    color: #f4f4f4; /* 字体颜色 */
+}
+
+.work-title h1 {
+    font-size: 2.5rem; /* 增加标题字体大小 */
+    margin: 0; /* 去掉默认边距 */
+}
+
+/* 简介和目录样式 */
+h2 {
+    margin: 1.5em 0; /* 更加灵活的边距 */
+    font-size: 2rem; /* 增加副标题字体大小 */
+}
+
+h2 p {
+    font-size: 1.2rem; /* 增加副标题下的段落字体大小 */
+}
+
+/* 段落和列表样式 */
+p, ul {
+    margin: 1em 0; /* 段落和列表外边距 */
+    text-align: left; /* 文本对齐 */
+}
+
+/* 列表项样式 */
+ul li {
+    list-style-type: none; /* 移除列表项符号 */
+    margin-bottom: 0.75em; /* 列表项底部外边距 */
+}
+
+/* 链接样式 */
+a {
+    font-size: 1.2rem; /* 增加链接字体大小 */
+    color: #333333;
+    text-decoration: none; /* 移除下划线 */
+}
+
+a:hover {
+    text-decoration: underline; /* 鼠标悬停时添加下划线 */
+    color: #B36F9F;
+}
+
+/* 段落缩进 */
+p {
+    text-indent: 2em; /* 缩进两个字的宽度 */
+}
+
+/* 针对屏幕宽度小于 768px 的设备 */
+@media (max-width: 768px) {
+    main {
+        width: 95%; /* 增加宽度以适应小屏幕 */
+        padding-top: 2%; /* 减少内边距 */
+    }
+
+    article h1 {
+        font-size: 2rem; /* 调整标题字号 */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* 调整副标题字号 */
+    }
+
+    h2 p {
+        font-size: 1rem; /* 增加副标题下的段落字体大小 */
+    }
+
+    p, ul {
+        margin: 1em 0; /* 调整外边距 */
+    }
+
+    a {
+        font-size: 1rem; /* 调整链接字号 */
+    }
+}
+
+/* 针对屏幕宽度大于 1200px 的设备 */
+@media (min-width: 1200px) {
+    main {
+        width: 80%; /* 限制大屏幕的宽度 */
+        padding-top: 3%; /* 恢复默认内边距 */
+    }
+
+    article h1 {
+        font-size: 3rem; /* 增加大屏幕上的标题字号 */
+    }
+
+    h2 {
+        font-size: 2rem; /* 增加副标题字号 */
+    }
+
+    h2 p {
+        font-size: 1.2rem; /* 增加副标题下的段落字体大小 */
+    }
+
+    p, ul {
+        margin: 1.5em 0; /* 恢复外边距 */
+    }
+
+    a {
+        font-size: 1.2rem; /* 增加链接字号 */
+    }
+}

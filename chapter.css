@@ -1,0 +1,140 @@
+body{
+    background-color: #F3DAD8;
+}
+
+main {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding-top: 3%; /* 主要内容区域内边距 */
+    padding-bottom: 3%;
+    background-color: #F4f4f4;
+}
+
+/* 作品标题样式 */
+.work-title {
+    text-align: right; /* 居中对齐 */
+    padding: 2rem; /* 内边距 */
+    background-color: #bc9ec1; /* 背景颜色 */
+    color: #f4f4f4; /* 字体颜色 */
+}
+
+.work-title h1 {
+    font-size: 2rem; /* 字体大小 */
+    margin: 0; /* 去掉默认边距 */
+}
+
+.chapter-content {
+    max-width: 1600px; /* 最大宽度，以避免在大屏幕上过于宽广 */
+    margin: 0 auto; /* 居中对齐 */
+}
+
+.chapter-content h1 {
+    font-size: 2.5em; /* 相对字体大小 */
+}
+
+.chapter-content p {
+    font-size: 1em; /* 相对字体大小 */
+}
+
+/* 针对屏幕宽度小于 768px 的设备 */
+@media (max-width: 768px) {
+    .chapter-content {
+        width: 95%; /* 增加在小屏幕上的宽度 */
+        padding: 15px; /* 减少内边距 */
+    }
+
+    .chapter-content h1 {
+        font-size: 2em; /* 减少标题字体大小 */
+    }
+
+    .chapter-content p {
+        font-size: 0.9em; /* 减少段落字体大小 */
+    }
+}
+
+/* 针对屏幕宽度大于 1200px 的设备 */
+@media (min-width: 1200px) {
+    .chapter-content {
+        width: 80%; /* 减少在大屏幕上的宽度 */
+        padding: 30px; /* 增加内边距 */
+    }
+
+    .chapter-content h1 {
+        font-size: 3em; /* 增加标题字体大小 */
+    }
+
+    .chapter-content p {
+        font-size: 1.1em; /* 增加段落字体大小 */
+    }
+}
+
+p {
+    text-indent: 2em; /* 缩进两个字的宽度 */
+}
+
+/* 返回作品页键样式 */
+.return {
+    text-align: center; /* 居中对齐 */
+    margin: 1.5rem 0; /* 外边距 */
+}
+
+.return a {
+    text-decoration: none; /* 移除下划线 */
+    color: #6c6c79; /* 文字颜色 */
+    font-weight: bold; /* 加粗文字 */
+    padding: 1rem 1.5rem; /* 内边距 */
+    transition: background-color 0.3s ease; /* 背景颜色过渡效果 */
+}
+
+.return a:hover {
+    text-decoration: underline;
+    color: #B36F9F; /* 鼠标悬停时的文字颜色 */
+}
+
+/* 章节导航样式 */
+.chapter-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 3rem 0;
+}
+
+.chapter-navigation a {
+    text-decoration: none;
+    color: #1D1E18;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    border: 0.2rem solid #F7ACCF;
+    border-radius: 0.8rem;
+    background-color: #FFFFFF;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: block;
+}
+
+.chapter-navigation a:hover {
+    background-color: #F7ACCF;
+    color: #FFFFFF;
+    border-color: #F7ACCF;
+}
+
+/* 隐藏没有上一章的按钮 */
+.no-previous .previous {
+    display: none;
+    flex: 1; /* 占据剩余空间 */
+}
+
+/* 隐藏没有下一章的按钮 */
+.no-next .next {
+    display: none;
+    flex: 1; /* 占据剩余空间 */
+}
+
+/* 确保只有一个按钮时，它被对齐到正确的位置 */
+.no-previous .next {
+    margin-left: auto; /* 将按钮对齐到右边 */
+}
+
+.no-next .previous {
+    margin-right: auto; /* 将按钮对齐到左边 */
+}
