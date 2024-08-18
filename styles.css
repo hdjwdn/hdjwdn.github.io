@@ -15,20 +15,20 @@ header {
     width: 100%;
     top: 0;
     left: 0;
-    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     display: flex;
     align-items: center;
-    padding: 0.7rem;
+    padding: 20px;
     background: #f4f4f4;
 }
 
 .icon-menu {
     position: relative;
-    margin-right: 1.5rem; /* 图标和其他内容的间距 */
+    margin-right: 15px; /* 图标和其他内容的间距 */
 }
 
 .icon-menu i {
-    font-size: 1.8rem; /* 图标大小 */
+    font-size: 24px; /* 图标大小 */
     color: #F7ACCF; /* 图标颜色 */
     cursor: pointer; /* 鼠标悬停时显示为可点击 */
 }
@@ -84,14 +84,14 @@ header {
 }
 
 header h1 {
-    margin: 0;
-    font-size: 1.5rem;
+    font-size: 20px;
     text-align: left;
+    margin:0;
 }
 
 header h1 a {
     text-decoration: none; /* 移除下划线 */
-    color: #1D1E18; 
+    color: #333333; 
 }
 
 header h1 a:hover,
@@ -167,7 +167,7 @@ header h1 a:focus {
 
 /* Main Content Styles */
 #main-content {
-    padding: 20px;
+    padding: 30px;
     background: #fff;
 }
 
@@ -195,6 +195,10 @@ section {
     transition: box-shadow 0.3s ease; /* 阴影的过渡效果 */
 }
 
+.card p{
+    text-indent: 2em;
+}
+
 .card:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 鼠标悬停时更深的阴影 */
 }
@@ -203,38 +207,43 @@ section {
 footer {
     color: #6c6c79;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
+    font-size: smaller;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 10px 0;
-    }
-
     .icon-menu {
-        margin-right: 0;
-        margin-bottom: 10px;
+        margin-right: 10px;
     }
 
-    .dropdown-menu {
-        width: 100%; /* Full width on small screens */
-        left: 0;
+    header h1 {
+        font-size: 18px;
     }
 
-    .dropdown-menu ul li a {
-        padding: 15px; /* Increase padding for touch targets */
+    #typing-text {
+        font-size: 1.5em;
     }
+
+    #main-content {
+        padding: 25px;
+    }
+    
+    section {
+        padding: 20px;
+    }
+    
+    .card-container {
+        gap: 20px;
+    }
+    
+    .card {
+        padding: 20px; /* 内边距 */
+    }
+
 }
 
-@media (min-width: 1200px) {
-    .icon-menu {
-        margin-right: 20px; /* Maintain margin for larger screens */
-    }
-
-    .dropdown-menu {
-        width: 200px; /* Maintain width for larger screens */
-        left: 0;
-    }
+p{
+    line-height: 1.6;
+    letter-spacing: 0.02em;
 }

@@ -6,7 +6,7 @@ main {
     width: 90%;
     margin: 0 auto;
     max-width: 1200px;
-    padding-top: 3%; /* 主要内容区域内边距 */
+    padding-top: 64px; 
     padding-bottom: 3%;
     background-color: #F4f4f4;
 }
@@ -25,8 +25,8 @@ main {
 }
 
 .chapter-content {
-    max-width: 1600px; /* 最大宽度，以避免在大屏幕上过于宽广 */
-    margin: 0 auto; /* 居中对齐 */
+    width:85%;
+    margin: 2em auto; /* 居中对齐 */
 }
 
 .chapter-content h1 {
@@ -34,14 +34,14 @@ main {
 }
 
 .chapter-content p {
+    text-indent: 2em;
     font-size: 1em; /* 相对字体大小 */
 }
 
 /* 针对屏幕宽度小于 768px 的设备 */
 @media (max-width: 768px) {
     .chapter-content {
-        width: 95%; /* 增加在小屏幕上的宽度 */
-        padding: 15px; /* 减少内边距 */
+        width: 85%; /* 增加在小屏幕上的宽度 */
     }
 
     .chapter-content h1 {
@@ -51,6 +51,24 @@ main {
     .chapter-content p {
         font-size: 0.9em; /* 减少段落字体大小 */
     }
+
+    .return a{
+        font-size: 0.9em;
+    }
+
+    .chapter-navigation {
+        display: flex;
+        justify-content: space-between;
+        gap: 7em;
+        margin: 2em 0;
+    }
+
+    .chapter-navigation a {
+        font-size: 0.9em;
+        border: 0.2em solid #F7ACCF;
+        border-radius: 0.6em;
+    }
+
 }
 
 /* 针对屏幕宽度大于 1200px 的设备 */
@@ -69,14 +87,10 @@ main {
     }
 }
 
-p {
-    text-indent: 2em; /* 缩进两个字的宽度 */
-}
-
 /* 返回作品页键样式 */
 .return {
+    margin-top: 70px;
     text-align: center; /* 居中对齐 */
-    margin: 1.5rem 0; /* 外边距 */
 }
 
 .return a {
@@ -96,17 +110,17 @@ p {
 .chapter-navigation {
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
-    margin: 3rem 0;
+    gap: 1em;
+    margin: 3em 0;
 }
 
 .chapter-navigation a {
     text-decoration: none;
     color: #1D1E18;
     font-weight: bold;
-    padding: 1rem 2rem;
-    border: 0.2rem solid #F7ACCF;
-    border-radius: 0.8rem;
+    padding: 1em 2em;
+    border: 0.2em solid #F7ACCF;
+    border-radius: 0.8em;
     background-color: #FFFFFF;
     transition: background-color 0.3s ease, color 0.3s ease;
     display: block;
