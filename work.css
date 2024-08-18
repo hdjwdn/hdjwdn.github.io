@@ -42,7 +42,7 @@ h2 {
 /* 段落和列表样式 */
 ul {
     text-align: left; /* 文本对齐 */
-    margin-bottom: 70px;
+    margin-bottom: 30px;
 }
 
 /* 列表项样式 */
@@ -61,6 +61,10 @@ ul li a {
 ul li a:hover {
     text-decoration: underline; /* 鼠标悬停时添加下划线 */
     color: #B36F9F;
+}
+
+#downloading p {
+    color:#bc9ec1;
 }
 
 .return {
@@ -85,6 +89,14 @@ ul li a:hover {
 @media (max-width: 768px) {
     .main-content{
         margin:30px;
+    }
+
+    h2 {
+        padding: 15px;
+    }
+
+    ul {
+        margin-bottom: 25px;
     }
 
     .return a{
