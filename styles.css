@@ -10,26 +10,25 @@ body {
 
 /* Header Styles */
 header {
-    text-align: center;
-    z-index: 1000;
+    position: fixed;
+    z-index: 10;
     width: 100%;
     top: 0;
     left: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1); /* Subtle shadow */
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 0.7rem;
     background: #f4f4f4;
-    position: fixed;
 }
 
 .icon-menu {
     position: relative;
-    margin-right: 20px; /* 图标和其他内容的间距 */
+    margin-right: 1.5rem; /* 图标和其他内容的间距 */
 }
 
 .icon-menu i {
-    font-size: 24px; /* 图标大小 */
+    font-size: 1.8rem; /* 图标大小 */
     color: #F7ACCF; /* 图标颜色 */
     cursor: pointer; /* 鼠标悬停时显示为可点击 */
 }
@@ -87,7 +86,7 @@ header {
 header h1 {
     margin: 0;
     font-size: 1.5rem;
-    text-align: center; 
+    text-align: left;
 }
 
 header h1 a {
@@ -106,6 +105,7 @@ header h1 a:focus {
     position: relative;
     height: 100vh; /* Full viewport height */
     background: linear-gradient(to bottom, #8c86d3, #F7ACCF); /* Gradient background */
+    background-size: cover;
     display: flex;
     align-items: center; /* Center content vertically */
     justify-content: center;
