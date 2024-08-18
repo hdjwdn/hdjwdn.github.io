@@ -24,6 +24,11 @@ main {
     margin: 0; /* 去掉默认边距 */
 }
 
+p {
+    margin: 0.5em 0; /* 段落底部外边距，您可以根据需要调整这个值 */
+    line-height: 1.7;
+}
+
 .chapter-content {
     width:85%;
     margin: 2em auto; /* 居中对齐 */
@@ -38,6 +43,17 @@ main {
     font-size: 1em; /* 相对字体大小 */
 }
 
+.centered-text {
+    text-align: center;
+    margin-top: -1em;
+    font-weight: bold;
+}
+
+.centered-text p {
+    font-size: 1em;
+    margin:0.3em 0;
+}
+
 /* 针对屏幕宽度小于 768px 的设备 */
 @media (max-width: 768px) {
     .chapter-content {
@@ -50,6 +66,15 @@ main {
 
     .chapter-content p {
         font-size: 0.9em; /* 减少段落字体大小 */
+    }
+
+    .centered-text {
+        margin-top: -0.5em;
+    }
+    
+    .centered-text p {
+        margin:0.2em 0;
+        font-size: 0.9em;
     }
 
     .return a{
@@ -133,15 +158,8 @@ main {
 }
 
 /* 隐藏没有上一章的按钮 */
-.no-previous .previous {
+.no-previous .previous, .no-next .next {
     display: none;
-    flex: 1; /* 占据剩余空间 */
-}
-
-/* 隐藏没有下一章的按钮 */
-.no-next .next {
-    display: none;
-    flex: 1; /* 占据剩余空间 */
 }
 
 /* 确保只有一个按钮时，它被对齐到正确的位置 */
@@ -151,4 +169,11 @@ main {
 
 .no-next .previous {
     margin-right: auto; /* 将按钮对齐到左边 */
+}
+
+.chapter-navigation a.disabled {
+    color: #aaaaaa;
+    border-color: #ccc;
+    background-color: #f0f0f0;
+    pointer-events: none;
 }
