@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F4F4F4;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 64px auto;
+    padding: 2rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* 默认竖屏布局 */
+    gap: 1rem; /* 间距 */
+}
+
+.message-form,
+.message-list {
+    background-color: #FFF;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message-form {
+    flex: 1;
+}
+
+.message-list {
+    flex: 2;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input,
+textarea {
+    width: 100%;
+    max-width: 600px;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+button {
+    padding: 0.5rem 2rem;
+    border: none;
+    background-color: #BC9EC1;
+    color: #FFF;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #A87C9B;
+}
+
+#messageList {
+    margin-top: 2rem;
+}
+
+#messageList div {
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.container {
+    min-height: 100vh; /* 确保容器高度至少为视口高度 */
+    box-sizing: border-box; /* 包括内边距和边框 */
+}
