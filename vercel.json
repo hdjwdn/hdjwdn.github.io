@@ -17,11 +17,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "/frontend/$1"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "/contact.html"
+        "dest": "/$1"
       }
     ]
   }
