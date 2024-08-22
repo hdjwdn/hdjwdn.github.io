@@ -1,39 +1,37 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
-const fs = require('fs');
 const path = require('path');
 
 const app = express();
-app.use(cors());
-app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '../public')));
-
-const messagesFile = path.join(__dirname, 'messages.json');
-
-// 获取所有留言
-app.get('/api/messages', (req, res) => {
-    fs.readFile(messagesFile, (err, data) => {
-        if (err) return res.status(500).send('Internal Server Error');
-        res.json(JSON.parse(data));
-    });
-});
-
-// 发送留言
-app.post('/api/messages', (req, res) => {
-    const newMessage = req.body;
-    fs.readFile(messagesFile, (err, data) => {
-        if (err) return res.status(500).send('Internal Server Error');
-        const messages = JSON.parse(data);
-        messages.push(newMessage);
-        fs.writeFile(messagesFile, JSON.stringify(messages), (err) => {
-            if (err) return res.status(500).send('Internal Server Error');
-            res.status(201).send('Message added');
-        });
-    });
-});
-
 const port = 3000;
+
+// 存储留言的数组
+let messages = [];
+
+// 使用 body-parser 中间件来解析请求体
+app.use(bodyParser.json());
+
+// 提供静态文件服务
+app.use(express.static(path.join(__dirname, 'D:\wyf\MyWebsite/frontend')));
+
+// 处理 GET 请求，返回所有留言
+app.get('/messages', (req, res) => {
+    res.json(messages);
+});
+
+// 处理 POST 请求，接收新的留言
+app.post('/messages', (req, res) => {
+    const { name, message } = req.body;
+    if (name && message) {
+        const newMessage = { name, message, date: new Date() };
+        messages.push(newMessage);
+        res.status(201).json(newMessage);
+    } else {
+        res.status(400).json({ error: 'Name and message are required.' });
+    }
+});
+
+// 启动服务器
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+    console.log(`Server running at http://localhost:${port}/`);
 });
