@@ -11,7 +11,7 @@ app.use(cors());
 let messages = [];
 
 // 提供静态文件服务
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../')));
 
 // 处理 GET 请求，返回所有留言
 app.get('/api/messages', (req, res) => {
@@ -28,6 +28,10 @@ app.post('/api/messages', (req, res) => {
     } else {
         res.status(400).json({ error: 'Name and message are required.' });
     }
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../contact.html'));
 });
 
 module.exports = app;
