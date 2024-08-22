@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 div.textContent = `${msg.name}: ${msg.message}`;
                 messageList.appendChild(div);
             });
-        });
+        })
+        .catch(error => console.error('Error loading messages:', error));
 
     // 处理留言提交
     form.addEventListener('submit', event => {

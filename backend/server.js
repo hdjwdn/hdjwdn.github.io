@@ -1,48 +1,41 @@
 const express = require('express');
 const path = require('path');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-
+const bodyParser = require('body-parser');  // 用于解析请求体
 const app = express();
+const port = process.env.PORT || 3000;
 
-// 启用 CORS
-app.use(cors());
-
-// 使用 body-parser 处理 JSON 数据
+// 中间件：解析 JSON 请求体
 app.use(bodyParser.json());
 
-// 存储留言的数组
-let messages = [];
-
-// 提供静态文件服务
+// 提供静态文件
 app.use(express.static(path.join(__dirname, '../')));
 
-// 处理 GET 请求，返回所有留言
-app.get('/messages', (req, res) => {
-    res.json(messages);
-});
+// 存储留言的内存数据库
+let messages = [];
 
-// 处理 POST 请求，接收新的留言
+// 发表留言
 app.post('/messages', (req, res) => {
     const { name, message } = req.body;
-    if (name && message) {
-        const newMessage = { name, message, date: new Date() };
-        messages.push(newMessage);
-        res.status(201).json(newMessage);
-    } else {
-        res.status(400).json({ error: 'Name and message are required.' });
+    if (!name || !message) {
+        return res.status(400).json({ error: 'Name and message are required' });
     }
+
+    const newMessage = {
+        id: messages.length + 1,
+        name,
+        message,
+        timestamp: new Date().toISOString()
+    };
+
+    messages.push(newMessage);
+    res.status(201).json(newMessage);
 });
 
-// 处理根路径请求，返回首页
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'));
+// 查看历史留言
+app.get('/messages', (req, res) => {
+    res.status(200).json(messages);
 });
 
-// 处理所有其他请求，返回 404 错误
-app.use((req, res) => {
-    res.status(404).send('404 Not Found');
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
 });
-
-
-module.exports = app;
