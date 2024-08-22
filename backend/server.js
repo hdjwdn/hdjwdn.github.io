@@ -35,9 +35,5 @@ app.post('/messages', (req, res) => {
     }
 });
 
-// 启动服务器
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}/`);
-});
-
+// 导出 app 对象，供 Vercel 使用
 module.exports = app;
