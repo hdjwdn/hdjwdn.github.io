@@ -6,15 +6,7 @@
         "use": "@vercel/node"
       },
       {
-        "src": "contact.html",
-        "use": "@vercel/static"
-      },
-      {
-        "src": "contact.css",
-        "use": "@vercel/static"
-      },
-      {
-        "src": "contact.js",
+        "src": "/(.*)",
         "use": "@vercel/static"
       }
     ],
@@ -26,6 +18,10 @@
       {
         "src": "/(.*)",
         "dest": "/frontend/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/contact.html"
       }
     ]
   }
