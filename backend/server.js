@@ -1,9 +1,7 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
-const port = 3000;
 
 // 存储留言的数组
 let messages = [];
@@ -12,7 +10,7 @@ let messages = [];
 app.use(bodyParser.json());
 
 // 提供静态文件服务
-app.use(express.static(path.join(__dirname, 'D:\wyf\MyWebsite/frontend')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // 处理 GET 请求，返回所有留言
 app.get('/messages', (req, res) => {
@@ -27,11 +25,8 @@ app.post('/messages', (req, res) => {
         messages.push(newMessage);
         res.status(201).json(newMessage);
     } else {
-        res.status(400).json({ error: 'Name and message are required.' });
+        res.status(400).json({ error: '请填写名字和留言！' });
     }
 });
 
-// 启动服务器
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}/`);
-});
+module.exports = app;
