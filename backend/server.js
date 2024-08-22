@@ -4,6 +4,9 @@ const cors = require('cors');
 
 const app = express();
 
+// 启用 CORS
+app.use(cors());
+
 // 存储留言的数组
 let messages = [];
 
