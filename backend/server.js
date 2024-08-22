@@ -1,41 +1,56 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const fs = require('fs');
 const path = require('path');
-const bodyParser = require('body-parser');  // 用于解析请求体
+
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000; // 使用 Vercel 提供的环境变量 PORT
 
-// 中间件：解析 JSON 请求体
 app.use(bodyParser.json());
-
-// 提供静态文件
 app.use(express.static(path.join(__dirname, '../')));
 
-// 存储留言的内存数据库
-let messages = [];
+const messagesFile = path.join(__dirname, 'messages.json');
 
-// 发表留言
+// 读取历史留言
+app.get('/messages', (req, res) => {
+    if (fs.existsSync(messagesFile)) {
+        fs.readFile(messagesFile, 'utf8', (err, data) => {
+            if (err) {
+                return res.status(500).json({ error: 'Failed to read messages' });
+            }
+            res.json(JSON.parse(data));
+        });
+    } else {
+        res.json([]);
+    }
+});
+
+// 提交新的留言
 app.post('/messages', (req, res) => {
     const { name, message } = req.body;
+
     if (!name || !message) {
         return res.status(400).json({ error: 'Name and message are required' });
     }
 
-    const newMessage = {
-        id: messages.length + 1,
-        name,
-        message,
-        timestamp: new Date().toISOString()
-    };
+    const newMessage = { name, message };
+    
+    let messages = [];
+    if (fs.existsSync(messagesFile)) {
+        const data = fs.readFileSync(messagesFile, 'utf8');
+        messages = JSON.parse(data);
+    }
 
     messages.push(newMessage);
-    res.status(201).json(newMessage);
-});
 
-// 查看历史留言
-app.get('/messages', (req, res) => {
-    res.status(200).json(messages);
+    fs.writeFile(messagesFile, JSON.stringify(messages, null, 2), (err) => {
+        if (err) {
+            return res.status(500).json({ error: 'Failed to save message' });
+        }
+        res.json(newMessage);
+    });
 });
 
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+    console.log(`Server running on port ${port}`); // Vercel 处理端口和域名
 });
