@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // 提供静态文件服务
-app.use(express.static(path.join(__dirname, '../')));
+app.use(express.static(path.join(__dirname, '..')));
 
 // 存储留言的数组
 let messages = [];
