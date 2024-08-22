@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // 提供静态文件服务
-app.use(express.static(path.join(__dirname, '..')));
+app.use(express.static(path.join(__dirname, '..'))); // 确保路径指向根目录
 
 // 存储留言的数组
 let messages = [];
@@ -35,5 +35,9 @@ app.post('/messages', (req, res) => {
     }
 });
 
-// 导出 app 对象，供 Vercel 使用
+// 启动服务器
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}/`);
+});
+
 module.exports = app;
