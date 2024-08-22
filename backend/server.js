@@ -1,16 +1,22 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
+const port = process.env.PORT || 3000;
 
-// 存储留言的数组
-let messages = [];
+// 启用 CORS
+app.use(cors());
 
 // 使用 body-parser 中间件来解析请求体
 app.use(bodyParser.json());
 
 // 提供静态文件服务
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../')));
+
+// 存储留言的数组
+let messages = [];
 
 // 处理 GET 请求，返回所有留言
 app.get('/messages', (req, res) => {
@@ -25,8 +31,13 @@ app.post('/messages', (req, res) => {
         messages.push(newMessage);
         res.status(201).json(newMessage);
     } else {
-        res.status(400).json({ error: '请填写名字和留言！' });
+        res.status(400).json({ error: 'Name and message are required.' });
     }
+});
+
+// 启动服务器
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}/`);
 });
 
 module.exports = app;

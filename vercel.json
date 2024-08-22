@@ -6,13 +6,21 @@
         "use": "@vercel/node"
       },
       {
-        "src": "**/*",
+        "src": "contact.html",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "contact.css",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "contact.js",
         "use": "@vercel/static"
       }
     ],
     "routes": [
       {
-        "src": "/messages",
+        "src": "/(.*)",
         "dest": "/backend/server.js"
       },
       {

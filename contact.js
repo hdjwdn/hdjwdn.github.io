@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             div.textContent = `${data.name}: ${data.message}`;
             messageList.appendChild(div);
             form.reset();
-        });
+        })
+        .catch(error => console.error('Error submitting message:', error));
     });
 });
